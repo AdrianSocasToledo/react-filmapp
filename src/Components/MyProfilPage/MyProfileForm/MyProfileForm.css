@@ -1,0 +1,22 @@
+.MyProfileForm {
+  padding: 20px;
+}
+
+.mpf-title {
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.mpf-userName {
+  margin-left: 10px;
+  font-size: 20px;
+  color: #094646;
+}
+
+.mpf-item {
+  font-size: 16px;
+  margin: 10px 0px;
+  max-width: 30%;
+}

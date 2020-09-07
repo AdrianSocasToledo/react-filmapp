@@ -1,0 +1,26 @@
+.filmItem {
+  background-color: white !important;
+  margin: 10px 20px;
+  font-size: 14px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  /** max-width: 60%;*/
+}
+
+.filmItem:hover {
+  background-color: #118080 !important;
+  color: white;
+}
+
+.fi-label {
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0px 20px;
+}
+
+.fi-li {
+  min-width: 200px;
+  max-width: 200px;
+  display: flex;
+}
