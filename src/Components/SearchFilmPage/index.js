@@ -7,7 +7,7 @@ import "@blueprintjs/icons/lib/css/blueprint-icons.css";
 import "../../App.css";
 import "./searchFilmPageStyles.css";
 
-const SearchFilmPage = ({ onUserData }) => {
+const SearchFilmPage = ({ filmLibrary, onUserData }) => {
   const [film, setFilm] = useState("");
 
   const handleKeyPress = (e) => {
@@ -35,6 +35,7 @@ const SearchFilmPage = ({ onUserData }) => {
       {!!film.length && (
         <SearchFilmResult
           film={film}
+          filmLibrary={filmLibrary}
           onUserData={handleUserData}
         ></SearchFilmResult>
       )}

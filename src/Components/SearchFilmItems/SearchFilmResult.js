@@ -13,23 +13,39 @@ import getUserByEmail from "../../Services/getUserByEmail";
 import FilmPoster from "./FilmPoster/FilmPoster";
 import FilmInfo from "./FilmInfo/FilmInfo";
 
-const SearchFilmResult = ({ film, onUserData }) => {
+const SearchFilmResult = ({ film, filmLibrary, onUserData }) => {
   const [result, setResult] = useState({});
   const user = useUser();
 
   useEffect(() => {
-    getFilm(film).then((result) => setResult(result));
+    const load = () => {
+      getFilm(film).then((result) => {
+        setResult(result);
+      });
+    };
+    load();
   }, [film]);
+
+  const checkFilm = (title) => {
+    if (filmLibrary.length) {
+      let exist = filmLibrary.map((film) => film.Title).indexOf(title);
+
+      if (exist >= 0) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  };
 
   const saveFilmResult = async () => {
     await saveFilm(result, user.email);
     const userData = await getUserByEmail(user.email);
-    onUserData(userData);
+    await onUserData(userData);
     showToast();
   };
 
   const showToast = async () => {
-    //TODO change static toast use for component usage.
     const AppToaster = Toaster.create({
       className: "recipe-toaster",
       position: Position.TOP,
@@ -37,7 +53,8 @@ const SearchFilmResult = ({ film, onUserData }) => {
     AppToaster.show({ message: "Pelicula Guardada Correctamente" });
   };
 
-  //TODO check if result is empty.
+  const check = result && checkFilm(result.Title);
+
   return (
     <div className="resultContainer">
       <div>
@@ -47,6 +64,7 @@ const SearchFilmResult = ({ film, onUserData }) => {
           text="Guardar"
           onClick={saveFilmResult}
           intent="warning"
+          disabled={check}
           large
         ></Button>
       </div>

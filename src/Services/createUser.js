@@ -4,7 +4,7 @@ export default async function createUser(email, userName) {
     userName: userName,
   };
 
-  const url = "https://filmapp-server.herokuapp.com/api/createUser";
+  const url = "http://localhost:3000/api/createUser";
   await fetch(url, {
     method: "POST",
     body: JSON.stringify(request),

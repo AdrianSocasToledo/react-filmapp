@@ -66,7 +66,10 @@ function App() {
         </nav>
         <Switch>
           <Route path="/SearchFilm">
-            <SearchFilmPage onUserData={handleUserData} />
+            <SearchFilmPage
+              onUserData={handleUserData}
+              filmLibrary={userData.filmLibrary}
+            />
           </Route>
           <Route path="/MyFilmLibrary">
             <MyFilmLibraryPage

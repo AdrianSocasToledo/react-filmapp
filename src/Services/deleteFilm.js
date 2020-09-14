@@ -1,9 +1,9 @@
-export default async function saveFilm(film, email) {
+export default async function deleteFilm(index, email) {
   const request = {
     email: email,
-    film: film,
+    index: index,
   };
-  const url = "http://localhost:3000/api/saveFilm";
+  const url = "http://localhost:3000/api/deleteFilm";
   await fetch(url, {
     method: "POST",
     body: JSON.stringify(request),

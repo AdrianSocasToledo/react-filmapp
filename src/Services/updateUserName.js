@@ -4,7 +4,7 @@ export default async function updateUserName(email, userName) {
     userName: userName,
   };
 
-  const url = "https://filmapp-server.herokuapp.com/api/updateUserName";
+  const url = "http://localhost:3000/api/updateUserName";
   await fetch(url, {
     method: "POST",
     body: JSON.stringify(request),
