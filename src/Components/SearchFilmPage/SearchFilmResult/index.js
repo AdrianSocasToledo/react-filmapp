@@ -6,12 +6,11 @@ import { useUser } from "reactfire";
 
 import "./SearchFilmResultStyles.css";
 
-import getFilm from "../../Services/getFilm";
-import saveFilm from "../../Services/saveFilm";
-import getUserByEmail from "../../Services/getUserByEmail";
+import getFilm from "../../../Services/getFilm";
+import saveFilm from "../../../Services/saveFilm";
+import getUserByEmail from "../../../Services/getUserByEmail";
 
-import FilmPoster from "./FilmPoster/FilmPoster";
-import FilmInfo from "./FilmInfo/FilmInfo";
+import FilmData from "../../FilmData";
 
 const SearchFilmResult = ({ film, filmLibrary, onUserData }) => {
   const [result, setResult] = useState({});
@@ -58,17 +57,18 @@ const SearchFilmResult = ({ film, filmLibrary, onUserData }) => {
   return (
     <div className="resultContainer">
       <div>
-        <FilmPoster url={result.Poster}></FilmPoster>
-        <Button
-          rightIcon={IconNames.SAVED}
-          text="Guardar"
-          onClick={saveFilmResult}
-          intent="warning"
-          disabled={check}
-          large
-        ></Button>
+        <FilmData film={result}></FilmData>
+        <div className="sfr-button_container">
+          <Button
+            rightIcon={IconNames.SAVED}
+            text="Guardar"
+            onClick={saveFilmResult}
+            intent="warning"
+            disabled={check}
+            large
+          />
+        </div>
       </div>
-      <FilmInfo film={result} fill="true"></FilmInfo>
     </div>
   );
 };

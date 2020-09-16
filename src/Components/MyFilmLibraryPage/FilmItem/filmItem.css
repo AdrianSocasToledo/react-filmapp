@@ -1,11 +1,16 @@
+.fi-container {
+  max-width: 60%;
+  min-width: 60%;
+}
+
 .filmItem {
+  width: 100%;
   background-color: white !important;
   margin: 10px 20px;
   font-size: 14px;
   display: flex;
   justify-items: center;
-  align-items: center;
-  /** max-width: 60%;*/
+  justify-content: space-between;
 }
 
 .filmItem:hover {

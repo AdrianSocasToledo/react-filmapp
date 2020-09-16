@@ -18,15 +18,18 @@ const FilmLibraryItem = ({ filmLibrary, onUserData }) => {
   return (
     <div>
       {filmLibrary.map((film, index) => (
-        <div className="filmLibraryItem">
-          <FilmItem film={film}></FilmItem>
-          <Button
-            text="Eliminar"
-            value={index}
-            onClick={(e) => {
-              deleteFilmByIndex(e.currentTarget.value);
-            }}
-          />
+        <div>
+          <div className="filmLibraryItem">
+            <FilmItem film={film}></FilmItem>
+
+            <Button
+              text="Eliminar"
+              value={index}
+              onClick={(e) => {
+                deleteFilmByIndex(e.currentTarget.value);
+              }}
+            />
+          </div>
         </div>
       ))}
     </div>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import SearchFilmResult from "../SearchFilmItems/SearchFilmResult";
+import SearchFilmResult from "./SearchFilmResult";
 
 import "normalize.css";
 import "@blueprintjs/core/lib/css/blueprint.css";
